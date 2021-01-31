@@ -1,0 +1,105 @@
+.descricao {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-deck {
+  margin: 1.25rem 0 1.875rem 0;
+}
+
+.img-card {
+  min-height: 12.5rem;
+  max-height: 12.5625rem;
+  object-fit: cover;
+}
+
+.max-length-description {
+  min-height: 6.25rem;
+}
+
+.icon {
+  font-size: 1.5625rem;
+  margin-right: 0.9375rem;
+}
+
+.ver-mais {
+  background-color: rgba(255, 153, 0, 1);;
+  border-radius: 0.3125rem;
+  padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.125rem;
+  border: 0;
+  margin-bottom: 0.8125rem;
+}
+
+.acessivel-button {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-title {
+  min-height: 48px;
+}
+
+@media screen and (max-width: 1440px) {
+  .icon {
+    font-size: 1.0625rem;
+    margin-right: 0.9375rem;
+  }
+
+  .ver-mais {
+    font-size: 0.75rem;
+    padding: 5px;
+  }
+
+  .botao {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .icon {
+    font-size: 1.5625rem;
+    margin-right: 0.9375rem;
+  }
+
+  .ver-mais {
+    font-size: 1.125rem;
+    padding: 5px;
+  }
+
+}
+
+@media screen and (max-width: 456px) {
+  .ng-star-inserted {
+    padding: 0 !important;
+  }
+}
+
+@media screen and (max-width: 367px) {
+  .icon {
+    font-size: 1.0625;
+    margin-right: 0.9375rem;
+  }
+
+  .ver-mais {
+    font-size: 0.75rem;
+    padding: 5px;
+  }
+
+  .ng-star-inserted {
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,357 @@
+<div class="container-fluid">
+  <div id="container">
+
+    <app-nav-bar></app-nav-bar>
+
+    <div class="row">
+      <div class="nome-perfil">
+        <h2 class="nome-perfil">Seja bem-vindo(a), {{usuario}}!</h2>
+      </div>
+    </div>
+
+    <div class="row botoes">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="botoes-perfil">
+          <div class="circulo1">
+            <i class="fas fa-user-edit img-circulo1"></i>
+          </div>
+
+          <!-- BOTÃO PARA ACIONAR MODAL -->
+          <button class="button" data-toggle="modal" data-target="#editarPerfil">
+            <h2 class="title-button1">Editar Perfil</h2>
+          </button>
+
+          <p class="button description-button text-center">Foto de perfil, nome do perfil, email de entrada, senha.</p>
+
+          <!-- MODAL EDITAR PERFIL -->
+          <div id="editarPerfil" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="TituloModalCentralizado">
+                    <i class="far fa-user ml-2 mr-2"></i>Editar perfil
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="formulario" (ngSubmit)="salvarOuAtualizar()">
+                    <div class="row">
+                      <div class="col-12">
+                        <input
+                          type="text"
+                          class="input form-control"
+                          mask="(00) 00000-0000"
+                          placeholder="Telefone"
+                          formControlName="telefone"
+                          aria-label="Telephone number 11 digits only" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-9">
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Rua"
+                          formControlName="rua" />
+                      </div>
+                      <div class="col-12 col-md-3">
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Número"
+                          formControlName="numero" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-7">
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Bairro"
+                          formControlName="bairro" />
+                      </div>
+                      <div class="col-12 col-md-5">
+                        <div>
+                          <input
+                            type="text"
+                            class="input mt-4 form-control"
+                            mask="00000-000"
+                            placeholder="Cep"
+                            formControlName="cep"
+                            aria-label="cep number 10 digits only">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-6 ">
+                        <div class="mt-4 input no-padding">
+                          <p-dropdown
+                            placeholder="Estado"
+                            [options]="estados"
+                            formControlName="estado"
+                            [filter]="true"
+                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                            (onChange)="listarCidades()">
+                          </p-dropdown>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div class="mt-4 input no-padding">
+                          <p-dropdown
+                            placeholder="Cidade"
+                            [options]="cidades"
+                            formControlName="cidade"
+                            [filter]="true"
+                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                          </p-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        id="email"
+                        class="input mt-4"
+                        placeholder="E-mail"
+                        formControlName="email" />
+                    </div>
+                    <div>
+                      <input
+                        type="password"
+                        id="senha"
+                        class="input mt-4"
+                        placeholder="Senha"
+                        formControlName="senha" />
+                    </div>
+                    <div class="float-right mt-4">
+                      <button type="submit" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn cadastrar botao"
+                      [class]="operacao? 'btn-primary' : 'btn-success'" >
+                       {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIM MODAL EDITAR PERFIL -->
+
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="botoes-perfil">
+          <div class="circulo2">
+            <i class="fas fa-pen img-circulo2"></i>
+          </div>
+
+          <!-- BOTÃO PARA ACIONAR MODAL -->
+          <button class="button" data-toggle="modal" data-target="#cadEstabelecimento">
+            <h2 class="title-button2">Cadastrar Estabelecimento</h2>
+          </button>
+
+          <p class="button description-button text-center">
+            Imagens, nome, telefone, descrição, acessibilidades...
+          </p>
+
+          <!-- MODAL CADASTRAR ESTABELECIMENTO -->
+          <div  class="modal fade" id="cadEstabelecimento" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="TituloModalCentralizado">
+                    <i class="fas fa-store-alt ml-2 mr-2"></i>Cadastrar estabelecimento
+                  </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <form [formGroup]="formulario" (ngSubmit)="cadastrarEstabelecimento()">
+                      <div class="form-group div-uploads" >
+                        <p-fileUpload #upload
+                          name="demo[]"
+                          chooseLabel="Escolher uma foto"
+                          [showUploadButton]="false"
+                          [showCancelButton]="false"
+                          (onSelect)="enviarImagem($event)"
+                          [multiple]="true"
+                          accept="image/*"
+                          maxFileSize="1000000">
+                        </p-fileUpload>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12">
+                          <input
+                            type="text"
+                            class="input mt-3"
+                            placeholder="Nome"
+                            name="nome"
+                            formControlName="nomeEstabelecimento"
+                            [class]="(submitted && formulario.get('nomeEstabelecimento').errors) ||
+                              (formulario.get('nomeEstabelecimento').errors && formulario.get('nomeEstabelecimento').dirty) ? 'is-invalid' :
+                              formulario.get('nomeEstabelecimento').dirty ? 'is-valid' : '' "
+                          >
+                          <div *ngIf="formulario.get('nomeEstabelecimento').errors?.required" class="invalid-feedback">
+                            Nome é obrigatório!
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <input
+                            type="text"
+                            class="input mt-4 form-control"
+                            placeholder="CNPJ"
+                            formControlName="cnpjEstabelecimento"
+                            mask="00.000.000/0000-00"
+                            [class]="(submitted && formulario.get('cnpjEstabelecimento').errors) ||
+                            (formulario.get('cnpjEstabelecimento').errors && formulario.get('cnpjEstabelecimento').dirty) ? 'is-invalid' :
+                            formulario.get('cnpjEstabelecimento').dirty ? 'is-valid' : '' "
+                          />
+                          <div *ngIf="formulario.get('cnpjEstabelecimento').errors?.required" class="invalid-feedback">
+                            CNPJ é obrigatório!
+                          </div>
+                          <div *ngIf="formulario.get('cnpjEstabelecimento').errors?.minlength" class="invalid-feedback">
+                            CNPJ inválido
+                          </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-6">
+                            <select formControlName="tipoEstabelecimento" matNativeControl required class="input ">
+                              <option value="">Tipo de Estabelecimento</option>
+                              <option value="Hotel">Hotel</option>
+                              <option value="Pousada">Pousada</option>
+                              <option value="Hotel Fazenda">Hotel Fazenda</option>
+                              <option value="Café">Café</option>
+                              <option value="Restaurante">Restaurante</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <input type="text" class="input mt-4" placeholder="Rua" name="rua"  formControlName="ruaEstabelecimento">
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <input type="text"
+                            class="input mt-4 form-control"
+                            placeholder="Telefone"
+                            formControlName="telefoneEstabelecimento"
+                            mask="(00)00000-0000"
+                            name="telefone"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <input type="text" class="input mt-4" placeholder="Bairro" name="bairro"  formControlName="bairroEstabelecimento">
+                        </div>
+                        <div class="col-12 col-md-3">
+                          <input type="text"
+                            class="input mt-4 form-control"
+                            placeholder="CEP"
+                            formControlName="cepEstabelecimento"
+                            mask="00000-000"
+                            name="cep"
+                          >
+                        </div>
+                        <div class="col-12 col-md-3">
+                          <input type="text" class="input mt-4" placeholder="Número" name="numero"  formControlName="numeroEstabelecimento">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12 col-md-6 ">
+                          <div class="mt-4 input no-padding">
+                            <p-dropdown
+                              placeholder="Estado"
+                              [options]="estadosEstabelecimento"
+                              formControlName="estadoEstabelecimento"
+                              placeholder="Estado"
+                              [filter]="true"
+                              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                              (onChange)="listarCidadesEstabelecimento()">
+                            </p-dropdown>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="mt-4 input no-padding">
+                            <p-dropdown
+                              placeholder="Cidade"
+                              [options]="cidadesEstabelecimento"
+                              formControlName="cidadeEstabelecimento"
+                              [filter]="true"
+                              [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                            </p-dropdown>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <textarea class="descricao mt-4" rows="4" cols="60" formControlName="descricao" placeholder="Descrição do local" name="descricao"></textarea>
+                      </div>
+
+                      <div class="mt-2 mb-3">
+                        <div class="div-filtros">
+                          <p class="title-filtros"> Acessível para deficiência:</p>
+                        </div>
+                        <div id="filtro-deficiencia">
+                          <div class="col-md-7 text-center">
+                       <div class="form-check">
+                        <label class="form-check-label espaco" for="defaultCheck1" formArrayName="acessibilidades" *ngFor="let acessibilidade of listaAcessibilidades.controls; let i = index">
+                          <input [formControlName]="i" class="form-check-input" type="checkbox">
+                          {{arrayDeAcessibilidades[i].tipo}}
+                        </label>
+                      </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="float-right">
+                        <button type="button" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                        <button
+                          type="submit"
+                          class="btn cadastrar"
+                          [class]="operacao? 'btn-primary' : 'btn-success'">
+                          Cadastrar
+                        </button>
+                      </div> 
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- FIM MODAL CADASTRAR ESTABELECIMENTO -->
+
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="botoes-perfil">
+          <div class="circulo3">
+            <i class="far fa-list-alt img-circulo3"></i>
+          </div>
+
+          <a class="button" routerLink="/listarParceiros">
+            <h2 class="title-button3">Ver estabelecimentos cadastrados</h2>
+          </a>
+
+          <p class="button description-button text-center">
+            Atualizar dados, excluir...
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

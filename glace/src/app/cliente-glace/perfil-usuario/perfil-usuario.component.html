@@ -1,0 +1,223 @@
+<div class="container-fluid">
+  <div id="container">
+
+    <app-nav-bar></app-nav-bar>
+
+    <div class="row">
+      <div class="nome-perfil">
+        <h2 class="nome-perfil">Seja bem-vindo(a), {{usuario}}!</h2>
+      </div>
+    </div>
+
+    <div class="row botoes">
+      <!-- ÁREA EDITAR PERFIL -->
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="botoes-perfil">
+          <div class="circulo1">
+            <i class="fas fa-user-edit img-circulo1"></i>
+          </div>
+
+          <!-- BOTÃO PARA ACIONAR MODAL -->
+          <button class="button" data-toggle="modal" data-target="#editarPerfil">
+            <h2 class="title-button1">Editar Perfil</h2>
+          </button>
+
+          <p class="button description-button text-center">Foto de perfil, nome do perfil, email de entrada, senha.</p>
+
+          <!-- MODAL EDITAR PERFIL -->
+          <div id="editarPerfil" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="TituloModalCentralizado">
+                    <i class="far fa-user ml-2 mr-2"></i>Editar perfil
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <form [formGroup]="formulario" (ngSubmit)="salvarOuAtualizar()">
+                    <div class="row">
+                      <div class="col-12">
+                        <input
+                          formControlName= "telefone"
+                          type="text"
+                          class="input form-control"
+                          mask="(00) 00000-0000"
+                          placeholder="Telefone"
+                          aria-label="Telephone number 11 digits only" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-9">
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Rua"
+                          formControlName="rua" />
+                      </div>
+                      <div class="col-12 col-md-3">
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Número"
+                          formControlName="numero" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-7">
+                        <input
+                          type="text"
+                          class="input mt-4"
+                          placeholder="Bairro"
+                          formControlName="bairro" />
+                      </div>
+                      <div class="col-12 col-md-5">
+                        <div>
+                          <input
+                            formControlName= "cep"
+                            type="text"
+                            class="input mt-4 form-control"
+                            mask="00000-000"
+                            placeholder="Cep"
+                            aria-label="cep number 10 digits only">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-6 ">
+                        <div class="mt-4 input no-padding">
+                          <p-dropdown
+                            placeholder="Estado"
+                            [options]="estados"
+                            formControlName="estado"
+                            [filter]="true"
+                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}"
+                            (onChange)="listarCidades()">
+                          </p-dropdown>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div class="mt-4 input no-padding">
+                          <p-dropdown
+                            placeholder="Cidade"
+                            [options]="cidades"
+                            formControlName="cidade"
+                            [filter]="true"
+                            [style]="{'width': '100%', 'border': '0', 'height': '100%', 'border-radius': '10px'}">
+                          </p-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        id="email"
+                        class="input mt-4"
+                        placeholder="E-mail"
+                        formControlName="email" />
+                    </div>
+                    <div>
+                      <input
+                        type="password"
+                        id="senha"
+                        class="input mt-4"
+                        placeholder="Senha"
+                        formControlName="senha" />
+                    </div>
+                    <div class="float-right mt-4">
+                      <button type="submit" class="btn cancelar btn-outline-secondary mr-2" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn cadastrar botao"
+                      [class]="operacao? 'btn-primary' : 'btn-success'" >
+                       {{ operacao ? "Cadastrar" : "Atualizar" }}</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIM MODAL EDITAR PERFIL -->
+
+        </div>
+      </div>
+      <!-- FIM ÁREA EDITAR PERFIL -->
+
+      <!------------------------------------------------------------------------------------------------>
+
+      <!-- ÁREA RESERVAS -->
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="botoes-perfil">
+          <div class="circulo2">
+            <i class="far fa-list-alt img-circulo2"></i>
+          </div>
+
+          <!-- BOTÃO PARA ACIONAR MODAL -->
+          <button class="button" data-toggle="modal" data-target="#reservas">
+            <h2 class="title-button2">Reservas</h2>
+          </button>
+
+          <p class="button description-button text-center">Visualizar suas reservas.</p>
+
+          <!-- MODAL RESERVAS -->
+          <div id="reservas" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="TituloModalCentralizado">
+                    <i class="far fa-list-alt ml-2 mr-2"></i>Minhas reservas
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p-table 
+                    #dt [value]="reservas" 
+                    [paginator]="true" 
+                    [rows]="10" 
+                    [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Mostrando {first} até {last} de {totalRecords} registros"
+                    [rowsPerPageOptions]="[5,10,25,50]" 
+                    [loading]="loading" 
+                    [filterDelay]="0"
+                    [globalFilterFields]="['nome','data']"> 
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th pSortableColumn="nome">Local<p-sortIcon field="nome"></p-sortIcon></th>
+                        <th pSortableColumn="data">Data<p-sortIcon field="data"></p-sortIcon></th>
+                        <th pSortableColumn="nome">Satus<p-sortIcon field="data"></p-sortIcon></th>
+                        <th class="deletar"></th>
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-reserva>
+                      <tr>
+                        <td>{{reserva.estabelecimento.nome}}</td>
+                        <td>{{reserva.dataReserva}}</td>
+                        <td>{{reserva.confirmarReserva}}</td>
+                        <td class="deletar">
+                            <p-button (click)="excluir(reserva.id)" icon="pi pi-trash"></p-button>
+                        </td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
+                  <div class="float-right mt-2">
+                    <button type="button" class="btn botao bg-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIM MODAL RESERVAS -->
+
+        </div>
+      </div>
+      <!-- FIM ÁREA RESERVAS -->
+
+    </div>
+
+  </div>
+</div>

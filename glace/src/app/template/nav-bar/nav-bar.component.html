@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" routerLink="/pesquisa">
+        <div class="title-container mr-4">
+            <h1 class="title">GLACE</h1>
+            <h2 class="sub-title">Guia de Lugares Acessíveis</h2>
+        </div>
+        <img src="../../assets/images/kids-2.png" class="align-top navbar-img"
+            alt="imagem de uma ilustração de crianças com deficiência" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarNav" class="collapse navbar-collapse justify-content-end navbar-options">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/pesquisa" routerLinkActive="active">Pesquisa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/quem-somos" routerLinkActive="active">Quem somos</a>
+            </li>
+            <!--PERFIL USUARIOADM-->
+            <li *ngIf="service.temPermissao('UG')" class="nav-item">
+                <a class="nav-link" routerLink="/listar/cliente" routerLinkActive="active">Perfil</a>
+            </li>
+            <!--PERFIL CLIENTE-->
+            <li *ngIf="service.temPermissao('CG')" class="nav-item">
+                <a class="nav-link" routerLink="/perfil/usuario" routerLinkActive="active">Perfil</a>
+            </li>
+            <!--PERFIL PARCEIRO-->
+            <li *ngIf="service.temPermissao('PG')" class="nav-item">
+                <a class="nav-link" routerLink="/perfil/parceiro" routerLinkActive="active">Perfil</a>
+            </li>
+            <li *ngIf="service.temQualquerPermissao(['CG', 'PG', 'UG'])" class="nav-item">
+                <a href="javascript:;" class="nav-link logout" (click)="logout()">Logout</a>
+            </li>
+            <li *ngIf="!service.temQualquerPermissao(['CG', 'PG', 'UG'])" class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>

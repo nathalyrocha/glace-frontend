@@ -1,0 +1,444 @@
+:host /deep/ .p-inputtext {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+  padding: 0.8125rem 0 0 1.125rem;
+}
+
+.nome-perfil {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 800 !important;
+  color: #3E3E3E;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 1.25rem;
+  font-size: 1.875rem;
+}
+
+.button {
+  text-decoration: none;
+}
+
+label{
+  display: inline-block;
+  font: 18px Lucida;
+  float: left;
+}
+
+label input{
+  float: left;
+}
+
+.botoes{
+  margin-top: 10%;
+}
+
+.botoes-perfil {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.875rem;
+}
+
+.editar-perfil-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circulo1 {
+  border: 0.3125rem solid #AAAAAA;
+  border-radius: 50%;
+  width: 7.5rem;
+  height: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circulo2 {
+  border: 0.3125rem solid #ADB8D7;
+  border-radius: 50%;
+  width: 7.5rem;
+  height: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circulo3 {
+  border: 0.3125rem solid #FF9900;
+  border-radius: 50%;
+  width: 7.5rem;
+  height: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-circulo1 {
+  font-size: 3rem;
+  color: #AAAAAA;
+}
+
+.img-circulo2 {
+  font-size: 3rem;
+  color: #ADB8D7;
+}
+
+.img-circulo3 {
+  font-size: 3rem;
+  color: #FF9900;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.875rem;
+  background: none;
+  border: 0;
+  font-family: 'Ruda', sans-serif;
+  width: 75%;
+}
+
+.title-button1 {
+  width: 100%;
+
+  color: #AAAAAA;
+  font-family: 'Ruda', sans-serif;
+  font-size: 2.1875rem;
+  font-weight: bold;
+  border: none;
+  background-color: none;
+}
+
+.title-button2 {
+  width: 100%;
+
+  color: #ADB8D7;
+  font-family: 'Ruda', sans-serif;
+  font-size: 2.1875rem;
+  font-weight: bold;
+  border: none;
+  background-color: none;
+}
+
+.title-button3 {
+  font-weight: bold;
+  color: #FF9900;
+  width: 100%;
+  font-family: 'Ruda', sans-serif;
+  font-size: 2.1875rem;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+}
+
+.title-button1:hover, .title-button2:hover, .title-button3:hover {
+  transition: 1s;
+  color: #3E3E3E;
+}
+
+.description-button {
+  color: #3E3E3E;
+  font-size: 1.5625rem;
+  max-width: 28.125rem;
+  margin-top: 1.25rem;
+}
+
+.modal-title {
+  color: #3E3E3E;
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.5625rem;
+  font-weight: bold;
+}
+
+.modal-dialog.modal-dialog-centered {
+  max-width: 80%;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255);
+}
+
+.input {
+  width: 100%;
+  height: 3.4375rem;
+
+  background: #FFFFFF;
+  border: 0.0625rem solid #F1E9E9;
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
+  border-radius: 0.625rem;
+
+  font-family: 'Ruda', sans-serif;
+  font-size: 1rem;
+  padding-left: 1.25rem;
+  margin-top: 1.5rem;
+  color: #6c757d;
+}
+
+.input:hover, textarea:hover {
+  transition: 0.5s;
+  border-color:#f58723;
+}
+
+.is-invalid {
+  border-color: red;
+  background: #ffe6e6;
+}
+
+.is-valid {
+  border-color: green;
+  background: #ebfaeb;
+}
+
+.botao:hover {
+  background-color: orange;
+}
+
+:host /deep/ .p-inputtext {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+  padding: 0.8125rem 0 0 1.25rem;;
+}
+
+:host /deep/ .p-fileupload-buttonbar {
+  border-radius: 0.625rem 0.625rem 0 0;
+}
+
+:host /deep/ .p-button {
+  background-color: rgba(255, 153, 0, 1);
+  border: 0;
+}
+
+:host /deep/ .p-button:hover {
+  background-color: #FFA723;
+  transition: 1s;
+}
+
+:host /deep/ .p-fileupload-content {
+  border-radius: 0 0 0.625rem 0.625rem;
+}
+
+:host /deep/ .p-dropdown .p-dropdown-label.p-placeholder {
+  font-size: 1rem;
+}
+
+textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 0.0625rem solid #F1E9E9;
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+  border-radius: 0.625rem;
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.image-checkbox p {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+  font-size: 1.0625rem;
+}
+
+.title-filtros {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+  padding: 1.25rem;
+  color: #4E4E4E;
+  margin: 0;
+  text-align: left;
+}
+
+.img-deficiencias {
+  width: 2.5rem;
+  opacity: 80%;
+}
+
+.img-deficiencias:hover {
+  transition: 0.5s;
+  opacity: 100%;
+}
+
+.text-center {
+  padding: 0 !important;
+  max-width: 50%;
+}
+
+.descricao {
+  padding-top: 0.625rem;
+  font-size: 1rem;
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(146, 140, 140, 0.05);
+}
+
+.image-checkbox {
+  cursor: pointer;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 0.25rem solid transparent;
+  outline: 0;
+}
+
+.image-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.image-checkbox-checked {
+  border-color: #f58723;
+}
+
+.img-deficiencias {
+  width: 3.125rem !important;
+  height: 3.125rem !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+}
+
+input[type="checkbox"][id^="myCheckbox"] {
+  display: none;
+}
+
+label {
+  border: 0.0625rem solid #fff;
+  padding: 0.625rem;
+  display: block;
+  position: relative;
+  margin-right: 0.625rem;
+  cursor: pointer;
+}
+
+label:before {
+  content: " ";
+  display: block;
+  border: 0.0625rem solid grey;
+  position: absolute;
+  top: -0.3125rem;
+  left: -0.3125rem;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  text-align: center;
+  line-height: 1.40625rem;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  /* box-shadow: 0 0 0.3125rem #333; */
+  z-index: -1;
+}
+
+p {
+  font-family: 'Ruda', sans-serif;
+  color: #08074E;
+  font-size: 1.0625rem;
+  margin-top: 0.3125rem;
+}
+
+.checkbox-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cadastrar {
+  background-color: rgba(255, 153, 0, 1);
+  border-radius: 0.4375rem;
+  color: #FFFFFF;
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+  border: 0.0625rem solid rgba(255, 153, 0, 1);
+  box-shadow: 0.1875rem 0.125rem 1.25rem rgba(0, 0, 0, 0.08);
+  padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
+  margin-top: 0 !important;
+}
+
+.cancelar {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.25rem;
+  border-radius: 0.4375rem;
+  padding: 0.3125rem 0.625rem 0.3125rem 0.625rem;
+  margin-right: 0.625rem;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.espaco {
+  font-family: 'Ruda', sans-serif;
+  color: #6c757d;
+  font-size: 20px;
+}
+
+.title-filtros {
+  font-family: 'Ruda', sans-serif;
+  color: #6c757d;
+}
+
+@media screen and (max-width: 1440px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+
+  .modal-dialog.modal-dialog-centered {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nome-perfil {
+    padding-right: 0.3125rem !important;
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .nome-perfil {
+    flex-direction: row;
+    padding-left: 0.625rem;
+    margin-top: 0.5rem;
+  }
+}

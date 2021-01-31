@@ -1,0 +1,101 @@
+.title1 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: bold;
+  background-color: rgba(255, 153, 0, 0.7);
+  font-size: 1.5rem;
+  border-radius: 0.625rem;
+  padding: 0.625rem 0 0.625rem 0.9375rem;
+  color: #FFFFFF;
+}
+
+.title2 {
+  font-family: 'Ruda', sans-serif;
+  font-weight: bold;
+  background-color: rgba(173, 184, 215, 0.8);
+  font-size: 1.5rem;
+  border-radius: 0.625rem;
+  padding: 0.625rem 0 0.625rem 0.9375rem;
+  color: #FFFFFF;
+  margin-top: 3.125rem;
+}
+
+.section-text {
+  padding: 0 0.625rem 0 0.625rem;
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.375rem;
+  color: #4F4F4F;
+}
+
+.desenvolvedores {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.875rem;
+}
+
+.image {
+  width: 8.75rem;
+  height: 9.375rem;
+}
+
+.fotos {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.descricao {
+  width: 72%;
+  margin-left: 20px;
+}
+
+.nome {
+  font-family: 'Ruda', sans-serif;
+  font-weight: bold;
+  font-size: 1.375rem;
+}
+
+.sobre {
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.125rem;
+  color: #3E3E3E;
+}
+
+a {
+  font-family: 'Ruda', sans-serif;
+  font-size: 0.9375rem;
+  color: #08074E;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: 0.5s;
+  color: rgba(255, 153, 0, 0.6);
+}
+
+@media screen and (max-width: 576px) {
+  .desenvolvedores {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  .descricao {
+    width: 98%;
+  }
+
+  .title1, .title2 {
+    font-size: 1.25rem;
+  }
+
+  .section-text {
+    font-size: 1.125rem;
+  }
+  .nome {
+    margin-top: 0.9375rem;
+    text-align: center;
+  }
+}

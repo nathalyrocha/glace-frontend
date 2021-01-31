@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div id="container" *ngFor="let e of estabelecimento">
+
+        <app-nav-bar></app-nav-bar>
+
+        <div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img [src]="e.foto.url" class="imagem d-block w-100" alt="imagem 1">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="content mt-5">
+            <h2 class="card-title title-veg">{{e.nome}}</h2>
+            <p class="description text-justify mt-3 mb-5">
+                {{e.descricao}}
+            </p>
+            <div class="mb-5">
+                <p>
+                    <i class="fas fa-circle icon"></i> Telefone: {{e.telefone}}
+                    <br>
+                    <i class="fas fa-circle icon"></i> Tipo: {{e.tipoEstabelecimento}}
+                </p>
+                <div class="icones">
+                    <p class="mr-3">Acessível para: </p>
+                    <div *ngFor="let access of e.acessibilidades">
+                        <p *ngIf="access.id === 1"> <i class="icon-acess fab fa-accessible-icon"></i> </p>
+                        <p *ngIf="access.id === 2"> <i class="icon-acess fas fa-blind"></i> </p>
+                        <p *ngIf="access.id === 4"> <i class="icon-acess fas fa-brain"></i> </p>
+                        <p *ngIf="access.id === 3"> <i class="icon-acess fas fa-sign-language"></i> </p>
+                    </div>
+                </div>
+            </div>
+            <p class="float-right text-right localizacao">
+                {{e.endereco.rua}} {{e.endereco.numero}}, {{e.endereco.bairro}}, {{e.endereco.cidade.nome}}
+                <br>CEP {{e.endereco.cep}}, {{e.endereco.cidade.estado.nome}}, Brasil
+            </p>
+            <button *ngIf="service.temPermissao('CG')" class="reserva" type="button" data-toggle="modal" data-target="#fazerReserva">Fazer reserva</button>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="fazerReserva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <i class="far fa-calendar-check mr-2"></i>Escolha a data e o horário da reserva
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="formulario" (ngSubmit)="fazerReserva()">
+                            <div class="row mb-2">
+                                <div class="col-12">
+                                    <input type="date" class="input mt-4" formControlName="data_reserva">
+                                </div>
+                            </div>
+                            <div class="mt-4 float-right">
+                                <button type="button" class="btn botao bg-danger mr-2" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn botao">Reservar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL -->
+
+    </div>
+</div>
